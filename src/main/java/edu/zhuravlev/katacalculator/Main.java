@@ -5,13 +5,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Converter conv = DefaultConverter.newConverter();
+        Solver solver = DefaultSolver.newSolver();
+        ExpressionValidator validator = DefaultExpressionValidator.newValidator(solver, conv);
 
-        String rome = "CCCLLLXXXVVVIII";
-        int arabic = 0;
         try (var scn = new Scanner(System.in)) {
             while (scn.hasNext()) {
-                arabic = scn.nextInt();
-                System.out.println(conv.convertArabicToRome(arabic));
+                try {
+                    validator.validate(scn.nextLine());
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
     }
