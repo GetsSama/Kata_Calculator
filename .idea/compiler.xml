@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Kata_Calculator" />
+        <module name="katacalculator" />
       </profile>
     </annotationProcessing>
   </component>
