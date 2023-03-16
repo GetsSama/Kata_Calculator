@@ -36,6 +36,11 @@ public class DefaultExpressionValidator implements ExpressionValidator{
             throw new Exception(new ArithmeticException("Result of rome calculation can not be smallest then 1"));
     }
 
+    @Override
+    public boolean isRomeExpression(String expr) {
+        return !isArabic(expr.split(" ")[0]);
+    }
+
     private void checkCountArgs(String[] args) {
         if (args.length != 3)
             throw new UnsupportedOperationException("The input expression should have only 3 arguments f.e.: 'a' 'operation' 'b', but given " + args.length + " args.");
