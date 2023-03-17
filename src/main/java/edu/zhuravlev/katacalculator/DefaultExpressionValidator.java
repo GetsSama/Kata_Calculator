@@ -1,6 +1,6 @@
 package edu.zhuravlev.katacalculator;
 
-public class DefaultExpressionValidator implements ExpressionValidator{
+class DefaultExpressionValidator implements ExpressionValidator{
     private static ExpressionValidator instance;
     private Solver solver;
     private Converter converter;

@@ -7,8 +7,12 @@ public class Main {
     private final static Converter converter = DefaultConverter.newConverter();
     private final static ExpressionValidator validator = DefaultExpressionValidator.newValidator(solver, converter);
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws Exception {
+        try (var scn = new Scanner(System.in)) {
+            while (scn.hasNext()) {
+                System.out.println(calc(scn.nextLine()));
+            }
+        }
     }
 
     public static String calc(String input) throws Exception {
@@ -23,10 +27,9 @@ public class Main {
             return converter.convertArabicToRome(Integer.parseInt(result));
         } else {
             var args = input.split(" ");
-            int arg1 = Integer.valueOf(args[0]);
-
+            var arg1 = Integer.parseInt(args[0]);
+            var arg2 = Integer.parseInt(args[2]);
+            return solver.solve(arg1, arg2, args[1]);
         }
-
-        return null;
     }
 }
